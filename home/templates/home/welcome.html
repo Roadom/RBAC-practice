@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body>
+        <h1>Welcome to Test Project!</h1>
+        <p>Today is {{ today }}</p>
+            <a href="{% url 'record.list' %}" class="btn btn-primary">Grades List</a>
+ 
+    </body>
+{% endblock %}

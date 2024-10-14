@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-5 fw-bold">Grades:</h1>
+    <div class="row row-cols-5 g-2">
+        {% for grade in grades %}
+        <div class="col"> 
+            <div class="p-3 border">
+                <a href="{% url 'records.detail' pk=grade.id %}" class="text-dark text-decoration-none">
+                    <h3 class="fw-bold">{{ grade.student.username }}</h3> 
+                </a>
+                <p>Score: {{ grade.score|truncatechars:10 }}</p> 
+            </div>
+        </div>
+        {% endfor %}
+        
+        {% if not grades %}
+        <div class="col">
+            <div class="p-3 border">
+                <p>No grades available.</p>  
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

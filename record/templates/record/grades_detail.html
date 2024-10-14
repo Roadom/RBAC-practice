@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>{{ grade.student }}</h1>
+    <p>{{ grade.score }}</p>
+
+    <a href="{% url 'record.list' %}" class="btn btn-secondary my-5">Back</a>
+
+    {% if is_principal or is_teacher %}
+        <a href="{% url 'records.update' pk=grade.id %}" class="btn btn-secondary my-5">Edit</a>
+        <a href="{% url 'records.delete' pk=grade.id %}" class="btn btn-danger my-5">Delete</a>
+    {% endif %}
+
+{% endblock %}
